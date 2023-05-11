@@ -58,7 +58,7 @@ def randint_generator(*data_connectors, flip=False):
 
             data_connector.cb_append_data_point(random.randint(0, 127), x)
 
-        sleep(0.01)
+        sleep(0.05)
 
 
 def midi_res(*data_connectors, flip=False):
@@ -105,7 +105,8 @@ parent_layout = QGridLayout()
 parent_widget.setLayout(parent_layout)
 
 # Connect plot with DataConnector
-data_connector = DataConnector(plot, max_points=300)
+rate = 100
+data_connector = DataConnector(plot, max_points=600, update_rate=rate, plot_rate=rate)
 
 # Create Pause, Resume buttons and Live status label
 pause_button = QPushButton("Pause live plot")
